@@ -16,7 +16,7 @@ $("#pick").click(function() {
               notMe  = false; }
           else {
               notMe = true;
-              break; }
+              return winner; }
       }
   }
       
