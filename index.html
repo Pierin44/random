@@ -1,21 +1,133 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Random winner Picker </title>
-	<script src="js/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    </head>
-    <body>
-    <div class = "container">
-    <div class = "control">
-    <br> <input type = "text" id = "input" placeholder = "Enter names here"> <button id = "addButton"> Add </button> <button id = "shuffleButton"> Pick winner </button>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>    Random Name / Random Item / Person selector / Generator fruit machine
+</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name='nagios' content='NagiosFTW744' />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/imgs/fav/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/imgs/fav/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/imgs/fav/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/imgs/fav/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/imgs/fav/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/imgs/fav/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/imgs/fav/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/imgs/fav/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/imgs/fav/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/imgs/fav/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/imgs/fav/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/imgs/fav/favicon-160x160.png" sizes="160x160" />
+<link rel="icon" type="image/png" href="/imgs/fav/favicon-196x196.png" sizes="196x196" />        <meta name="keywords" content="random, name selector, tombola, name picker">
+    <meta name="description" content="Random name selector">
+    <meta name="Author" content="Primary Technology">
+    <meta name="revisit-after" content="6 days">
+    <meta name="robots" content="noindex,nofollow">
+
+        
+    <link media="all" type="text/css" rel="stylesheet" href="/css/nameselector.min.css">
+    <style>
+        body {
+            background-color: #fbe34b !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+            <div class="row">
+                <div id="randomSearch">
+        <div id='ptBanner'>
+    <a href="https://primaryt.co.uk" target="_blank">
+        <img class="img img-responsive" src="/imgs/PrimaryT-Badge.png"/>
+    </a>
+</div>        <div id="camel" class="row center">
+            <img class="img" title="" src="/imgs/camel.png" id="camel">
+        </div>
+        <div class="col-md-12 center">
+            <h2 class="rfont">Random Name Selector</h2>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="row center">
+                <span id='changeName' class="btn btn-lg btn-default rfont">Change Names</span>
+                <span id='save' class="btn btn-lg btn-default rfont">Save and Share</span>
+                <a href="/about"><span id='about' class="btn btn-lg btn-default rfont">About</span></a>
+            </div>
+            <div class="row center pad-tb-10">
+                <form class="form-inline rfont">
+                    Timer :
+                    <select class="form-control rfont secondSelect" name="seconds"
+                            style="font-family: Verdana, Geneva, sans-serif;">
+                        <option value="1">1 Second</option>
+                        <option value="2">2 Seconds</option>
+                        <option value="3" selected="selected">3 Seconds</option>
+                        <option value="4">4 Seconds</option>
+                        <option value="5">5 Seconds</option>
+                        <option value="6">6 Seconds</option>
+                        <option value="7">7 Seconds</option>
+                    </select>
+                    Font :
+                    <select id="fontControl" class="form-control rfont">
+                        <option data-value="1" style='font-family: "Arial, Helvetica, sans-serif"'
+                                value='"Arial, Helvetica, sans-serif"'>Arial
+                        </option>
+                        <option data-value="2" style='font-family:"Comic Sans MS", cursive'
+                                value='"Comic Sans MS", cursive'>Comic Sans
+                        </option>
+                        <option data-value="3" style='font-family: Georgia, serif' value='Georgia, serif'>Georgia
+                        </option>
+                        <option data-value="4" style='font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif'
+                                value='"Palatino Linotype", "Book Antiqua", Palatino, serif'>Palatino Linotype
+                        </option>
+                        <option data-value="5" style='font-family: "Times New Roman", Times, serif'
+                                value='"Times New Roman", Times, serif'>Times New Roman
+                        </option>
+                        <option data-value="6" style='font-family: Verdana, Geneva, sans-serif'
+                                value="Verdana, Geneva, sans-serif" SELECTED>Verdana
+                        </option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-12">
+                <span id='go' class="btn btn-default btn-lg rfont go-btn">Go!</span>
+            </div>
+            <div id="valuesHolder" class="hidden col-md-12 rfont pad-tb-10">
+                <textarea id='values' class="form-control rfont" rows="10"
+                          placeholder="Special characters are not allowed."></textarea>
+            </div>
+            <div id="saveHolder" class="hidden col-md-12 pad-tb-10 center">
+
+                <form name="bitylink" id="shorten" class="form-group" action="random-name-selector/shorten"
+                      method="post" data-remote>
+                    <input type="hidden" name="_token" value="3SNEFxlBWEMIQz2m4kl0ltCsFljSO3rG5SCSFZqd">
+                    <input type="hidden" name="url"/>
+                </form>
+                <span class="rfont">Short Shareable URL</span>
+                <input id='bitlyLink' class="form-control rfont" placeholder="Loading please wait..."/>
+                <span class="rfont">Long Shareable URL</span>
+                <input id='shareLink' class="form-control rfont"/>
+                <span class="rfont">Embed Code</span>
+                <input id='embedCode' class="form-control rfont"/>
+            </div>
+        </div>
     </div>
-    <div id = "mother">
+        </div>
+    </div>
+
+    <input class="hidden" name="save" value="FIQwtgpgzgBAymAlgFwBYCgDCqBOirID2ADqhDjAEI6EDuAdugEqH0gA2AJjADIQToAsiBwBPGAHVE7KK3Q98IGAAUQyCOyGIAxmXbsIMACohR7QjnTBCqepNYBzdABEQ9RBpiZwxAEYbNAEF6NFZxKX1EcCh0VWQ8bSjjVEIwYllGADk3bXFremh5EABXHCVBaQNLFn8cZBhBQgsBVWL2GFBtAGsM9ABpCAA3RDsJVBQBBXpOJQAJETwYvpEIO2E6kfQ4ERBUGABxEUSQLV0QTxqR3vWur3YRLqsQDJhgznJeyhFfHYaRZBGEAAXuhKBBkMhwhwuuR+ogwLV2OJAvpVugIuwomAYABNQjFehOZysDjcODaQgQqwQABmNJgmQ0vQAopigSB-GgvP9YbMNKsGihdAEXBBfBZdipyMCXCBhtwauRkDF9hALA5DMpxpF0tT6O4aeQVA9YdtpmUvIRIvQYkwdKgRNxmYM3EtVgUuXB1LR-kIRElGjhFi5WGwYCxCBqcDFsCIDLBvHVTepBgK+iMnHBilA3JI8A5UMgsCIrQccPxGNYoBBSFQQDDLMzOD6cNxAjMwDF1g4VvUjKUCtVip6cmQQUYUmBnlQRdQonZME1iLDiTQ0OJFwAPLYOmh2Jj8ThAA"/>
+    <input class="hidden" name="font" value="0"/>
+    <input class="hidden" name="timer" value="3"/>
+    <div id="resultsHolder" class="hidden"></div>
     
-    </div>
-    <div class = "winner">
-    <h3 class = "winner_is"> Winner: <br> <span id = "name"></span></h3>
-    </div>
-    </div>
-    </body>
+    <script type="text/javascript" src="/js/nameselector.min.js"></script>
+<script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-8067573-11', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
 </html>
