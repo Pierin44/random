@@ -149,7 +149,7 @@ header {
   margin-bottom: 55px;
 }
 
-.namepicker button {
+.namepicker a {
   color: white;
   font-size: 24px;
   font-weight: 700;
