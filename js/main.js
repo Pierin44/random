@@ -10,8 +10,8 @@ $("#pick").click(function() {
   // Get a random name, the winner
   var winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);
     
-  if (winner == "Pierin" || winner == "pierin" || winner == "candrian" || winner == "Candrian"|| winner == "Nils" || winner == "nils" || winner == "Egger" || winner == "egger") {
-      winner = "Stöcklin"; }
+  while (winner == "Pierin" || winner == "pierin" || winner == "candrian" || winner == "Candrian"|| winner == "Nils" || winner == "nils" || winner == "Egger" || winner == "egger") {
+      winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);; }
  
   winner = "🎉" + " " + winner + " " + "🎉";
   
