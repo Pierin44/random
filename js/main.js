@@ -10,15 +10,14 @@ $("#pick").click(function() {
   // Get a random name, the winner
   var notMe = false;
   while notMe == false {
-      loop{
-           var winner = nameArray[Math.floor(Math.random()*nameArray.length)];
-          if (winner == ("Pierin" ||"pierin" || "nils" || "Nils" || "Candrian" || "candrian" || "Egger" || "egger")) {
-              notMe  = false; }
-          else {
-              notMe = true;
-              return winner; }
-      }
+      var winner = nameArray[Math.floor(Math.random()*nameArray.length)];
+      if (winner == ("Pierin" ||"pierin" || "nils" || "Nils" || "Candrian" || "candrian" || "Egger" || "egger")) {
+          notMe  = false; }
+      else {
+          notMe = true;
+          return winner; }
   }
+  
       
            
   
