@@ -10,7 +10,7 @@ $("#pick").click(function() {
   // Get a random name, the winner
   var winner = nameArray[Math.floor(Math.random()*nameArray.length)];
     
-  if (winner == "Pierin") {
+  if (winner == Pierin) {
       winner = "Stöcklin" }
     
   
