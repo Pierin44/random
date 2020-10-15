@@ -11,7 +11,7 @@ $("#pick").click(function() {
   var winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);
     
   if (winner == "Pierin") {
-      winner = "Stöcklin" }
+      winner = "Stöcklin"; }
     
   
   
