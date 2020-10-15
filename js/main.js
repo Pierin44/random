@@ -11,7 +11,7 @@ $("#pick").click(function() {
   var winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);
     
   while (winner == "Pierin" || winner == "pierin" || winner == "candrian" || winner == "Candrian"|| winner == "Nils" || winner == "nils" || winner == "Egger" || winner == "egger") {
-      winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);; }
+      winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]); }
  
   winner = "🎉" + " " + winner + " " + "🎉";
   
