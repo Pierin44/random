@@ -8,10 +8,10 @@ $("#pick").click(function() {
   var nameArray = names.split(',');
   
   // Get a random name, the winner
-  var winner = nameArray[Math.floor(Math.random()*nameArray.length)];
+  var winner = String(nameArray[Math.floor(Math.random()*nameArray.length)]);
     
-  if (winner == Pierin) {
-      winner = Stöcklin }
+  if (winner == "Pierin") {
+      winner = "Stöcklin" }
     
   
   
