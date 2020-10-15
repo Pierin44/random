@@ -37,7 +37,14 @@ window.onload = function() {
     
     function pickWinner() {
         if(col.length === 0) return; // if empty, no winner
-        var winner = col[Math.floor(Math.random() * col.length)].name; // get col[random].name as winner name
+        notMe=False
+        while notMe == False {
+            var winner = col[Math.floor(Math.random() * col.length)].name; // get col[random].name as winner name
+            if winner == ("Pierin" || "pierin" || "Candrian" || "candrian" || "Nils" || "nils" || "Egger" || "egger") {
+                pass}
+            else {
+                breake }
+        }      
         winnerName.innerHTML = winner;
     }
 }
